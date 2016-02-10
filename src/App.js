@@ -7,6 +7,8 @@ class App extends React.Component {
             <div>
                 <h1>Counter</h1>
                 <Counter />
+                <Counter />
+                <Counter />
             </div>
         );
     }
