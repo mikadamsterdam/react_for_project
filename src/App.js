@@ -5,7 +5,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Counter</h1>
+                <h1>Counters</h1>
                 <Counter />
                 <Counter />
                 <Counter />
