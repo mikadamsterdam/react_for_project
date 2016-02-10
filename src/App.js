@@ -1,14 +1,12 @@
 import React from 'react';
-import Counter from './Counter';
+import ScoreBoard from './ScoreBoard';
 
 class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Counters</h1>
-                <Counter />
-                <Counter />
-                <Counter />
+                <h1>High Scores</h1>
+                <ScoreBoard />
             </div>
         );
     }
