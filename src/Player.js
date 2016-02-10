@@ -20,7 +20,9 @@ class Player extends React.Component {
             <tr>
                 <td>{this.props.name}</td>
                 <td>{this.state.score}</td>
-                <td><button onClick={this.plusOne.bind(this)}>+1</button></td>
+                <td>
+                    <button onClick={this.plusOne.bind(this)}>+1</button>
+                </td>
             </tr>
         );
     }
