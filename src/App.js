@@ -1,5 +1,5 @@
 import React from 'react';
-import ScoreBoard from './ScoreBoard';
+import ScoreBoard from './Scoreboard';
 
 class App extends React.Component {
     render() {
