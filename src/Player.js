@@ -15,11 +15,19 @@ class Player extends React.Component {
         });
     }
 
+    renderPrize() {
+        if(this.state.score >= 10){
+            return <img src="http://goo.gl/u1KKqp" />
+        }
+
+        return null;
+    }
+
     render() {
         return (
             <tr>
                 <td>{this.props.name}</td>
-                <td>{this.state.score}</td>
+                <td>{this.state.score} {this.renderPrize()}</td>
                 <td>
                     <button onClick={this.plusOne.bind(this)}>+1</button>
                 </td>
