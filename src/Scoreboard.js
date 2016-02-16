@@ -11,14 +11,30 @@ class ScoreBoard extends React.Component {
             players: [
                 { name: "Benjamin", score: 0},
                 { name: "Wouter", score: 0 },
-                { name: "Rory", score: 0 }
+                { name: "Rory", score: 0 },
+                { name: "Frits", score: 0 }
             ]
         };
     }
 
     onChangeScore(name, score){
+        // create a new list of player by looping over the existing list
+        // and replacing the player we want to change the score for
+        var oldPlayers = this.state.players;
+        var newPlayers = oldPlayers.map(function(player){
+            if(player.name == name){
+                return {
+                    name: player.name,
+                    score: score
+                }
+            }
+
+            return player;
+        });
+
         this.setState({
-            message: name + " scored and has " + score + " points."
+            message: name + " scored and has " + score + " points.",
+            players: newPlayers
         });
     }
 
@@ -43,7 +59,7 @@ class ScoreBoard extends React.Component {
                     {this.state.players.map(this.renderPlayer.bind(this))}
                 </tbody>
                 <tfoot>
-                    <tr colspan="3">
+                    <tr colSpan="3">
                         <td>{this.state.message}</td>
                     </tr>
                 </tfoot>
