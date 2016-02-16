@@ -10,9 +10,13 @@ class Player extends React.Component {
     }
 
     plusOne() {
+        var newScore = this.state.score + 1;
+
         this.setState({
-            score: this.state.score + 1
+            score: newScore
         });
+
+        this.props.onChange(this.props.name, newScore);
     }
 
     renderPrize() {
