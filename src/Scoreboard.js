@@ -1,4 +1,5 @@
 import React from 'react';
+import jQuery from 'jquery';
 import Player from './Player';
 import AddPlayer from './AddPlayer';
 
@@ -9,13 +10,18 @@ class ScoreBoard extends React.Component {
 
         this.state = {
             message: "There are no scores yet.",
-            players: [
-                { name: "Benjamin", score: 0},
-                { name: "Wouter", score: 0 },
-                { name: "Rory", score: 0 },
-                { name: "Frits", score: 0 }
-            ]
+            players: []
         };
+    }
+
+    componentDidMount(){
+        // the jQuery.get callback will create a new context (this), so we need to remember what 'this'
+        var self = this;
+        jQuery.get("http://nextminds.github.io/scoreboard.json", function(data){
+            self.setState({
+                players: data.players
+            });
+        });
     }
 
     onChangeScore(name, score){
