@@ -115,7 +115,7 @@ We will need NodeJS and npm for development. Make sure you have got NodeJS and n
 > We learn: React setup with Webpack, JSX and rendering.
 
 1. Create a new directory 'react-tutorial'
-2. Download the starter-kit from https://github.com/nextminds/react-starter (don't clone if you want to use your own repo, because we want to use these files as a start and don't want to use this repository).
+2. Download the starter-kit from https://github.com/Codaisseur/react-starter (don't clone if you want to use your own repo, because we want to use these files as a start and don't want to use this repository).
 3. We get:
 	- index.html - our main entry html
 	- src/App.js - our React application
@@ -609,7 +609,7 @@ But what if we want to add players on the fly, while running the application? Le
     }
 	```
 
-**Source code:** https://github.com/nextminds/traineeship-react/releases/tag/5.3
+**Source code:** https://github.com/codaisseur/traineeship-react/releases/tag/5.3
 
 > **Extra exercise:**
 > - A remove button behind each Player to remove them
