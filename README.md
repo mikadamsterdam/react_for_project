@@ -37,7 +37,7 @@ button.addEventListener("click", function(){
 
 When using React we don't touch the DOM directly. Like other (front-end) frameworks we use templates (sort of). But instead of bringing logic to a new template language, we put the html in JS (we'll explain this code later, don't worry about it too much):
 
-```javascript
+```jsx
 class Main extends React.Component {
    render() {
         return (
@@ -140,7 +140,7 @@ This line tells React to render the App.js within the `<div id='root'>` that we 
 10. As you see we write html within Javascript while using React, we usually can't do this. We call this: JSX. Webpack translates this JSX (which the browser can't understand), to plain old Javascript (which the browser does understand).
 11. You can edit the JSX in the render method to whatever html you want. Just be sure to always enclose everything with a single tag, such as a div:
 
-	```javascript
+	```jsx
 	render() {
 	    return (
 			<div>
@@ -169,7 +169,7 @@ We are now going to create a counter to use in our app. This counter will displa
 2. Copy the contents of App to this file, as we want to create a new component
 3. Edit the file, so that we have a component called `Counter`, which displays a `h2` saying '0' and a `button` saying '+1'.
 
-	```javascript
+	```jsx
 	import React from 'react';
 	
 	class Counter extends React.Component {
@@ -188,7 +188,7 @@ We are now going to create a counter to use in our app. This counter will displa
 	
 4. Now to use this Counter component in our App, we have to import it an render it:
 	
-	```javascript
+	```jsx
 	import React from 'react';
 	import Counter from './Counter';
 	
@@ -211,7 +211,7 @@ We are now going to create a counter to use in our app. This counter will displa
 5. Take a peek at the browser to see the result... The button is not working yet, for this, we need to write some code.
 6. First we're going to setup `this.state` in Counter. The `state` of a React Component is a bit of data that can change over time. Every time it changes, the React Component will re-render, using that data. We need to set an initial state, for this we add a constructor to our class. We always need to say `super()` in constructors of classes which extend others.
 
-	```javascript
+	```jsx
     constructor(){
         super();
 	
@@ -223,26 +223,26 @@ We are now going to create a counter to use in our app. This counter will displa
 	
 7. Now we can use `this.state.count` in our render method. If we change the count in the constructor to 1 or 100, it will render that instead of 0:
 	
-	```javascript
-	    render() {
-	        return (
-	            <div>
-	                <h2>{this.state.count}</h2>
-	                <button>+1</button>
-	            </div>
-	        );
-	    }
+	```jsx
+   render() {
+        return (
+            <div>
+                <h2>{this.state.count}</h2>
+                <button>+1</button>
+            </div>
+        );
+    }
 	```
 
 8. The final trick is to listen to clicks on the button and change the counter state. First we add a click-listener to our button:
 	
-	```html
+	```jsx
 	<button onClick={ this.plusOne.bind(this) }>+1</button>
 	```
 
 	This means: when you click the button, perform the `plusOne` method of this class. We should now define a `plusOne` method which changes the `state`:
 	
-	```javascript
+	```jsx
 	plusOne() {
 	    this.setState({
 	        count: this.state.count + 1
@@ -279,7 +279,8 @@ We are now going to create a counter to use in our app. This counter will displa
 We are now going to turn these counters into a scoreboard app. This app will show a list of players with each their own score.
 
 1. First we want to show these players and their counters in a table. Let's create a ScoreBoard component in ScoreBoard.js:
-	```
+
+	```jsx
 	import React from 'react';
 	
 	class ScoreBoard extends React.Component {
@@ -298,7 +299,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 	```
 2. Now we create a Player component, which will fill the ScoreBoard later:
 	
-	```javascript
+	```jsx
 	import React from 'react';
 	
 	class Player extends React.Component {
@@ -333,7 +334,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 	```
 
 3. Now add a few Players to the ScoreBoard, we add their name as a **prop**:
-	```html
+	```jsx
 	<table>
 	    <thead>
            <tr>
@@ -354,7 +355,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 
 4. Let's show a prize whenever a Player hits 10 points:
 
-	```javascript
+	```jsx
     renderPrize() {
         if(this.state.score >= 10){
             return <img src="http://goo.gl/u1KKqp" />
@@ -378,7 +379,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 
 5. Now we want to communicate from our Children to the Parent, for this we use callbacks. Let's have the ScoreBoard display the last score. First change the plusOne method from the Player component:
 
-	```javascript
+	```jsx
    plusOne() {
         var newScore = this.state.score + 1;
 
@@ -391,12 +392,12 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 	```
 	Then listen to the onChange method in the ScoreBoard
 	
-	```javascript
+	```jsx
 	<Player name="Benjamin" onChange={this.onChangeScore.bind(this)} />
 	```
 	Then implement the onChangeScore method in the ScoreBoard
 	
-	```javascript
+	```jsx
    onChangeScore(name, score){
         this.setState({
             message: name + " scored and has " + score + " points."
@@ -406,7 +407,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 	
 	Let's render that message below the table:
 	
-	```html
+	```jsx
 	<tfoot>
 		<tr colSpan="3">
 			<td>{this.state.message}</td>
@@ -417,7 +418,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 	
 	We should also add a constructor to ScoreBoard to initialize this.state:
 		
-	```javascript	
+	```jsx	
     constructor(){
         super();
 
@@ -440,7 +441,7 @@ Instead of adding multiple Player components manually in the ScoreBoard, we shou
 
 1. Let's first create an array of players, and render a Player for each user:
 
-	```javascript	
+	```jsx	
     constructor(){
         super();
 
@@ -455,14 +456,14 @@ Instead of adding multiple Player components manually in the ScoreBoard, we shou
     }
 	```
 	and now loop through these by using Array.map. Array.map is an ES6 function that returns a new item for each item in an array. In this case: for each player in the this.state.players array, return a <Player /> Component to the render function:
-	```javascript
+	```jsx
     <tbody>
         {this.state.players.map(this.renderPlayer.bind(this))}
     </tbody>
 	```
 	and define the renderPlayer method on ScoreBoard:
 	
-	```javascript
+	```jsx
    renderPlayer(player){
         return <Player 
             name={player.name} 
@@ -477,7 +478,7 @@ Instead of adding multiple Player components manually in the ScoreBoard, we shou
 
 2. But now we're not using the scores from the ScoreBoard, but still the scores in Player. It's better to have all our data in one place: the ScoreBoard. First, let's simplify the Player, so it doesn't use it's own `this.state.score`, but the passed down `this.props.score` . 
 
-	```javascript
+	```jsx
    constructor(){
         super();
     }
@@ -500,7 +501,7 @@ Instead of adding multiple Player components manually in the ScoreBoard, we shou
 	```
 3. But now the scores aren't working, because the scores passed down by ScoreBoard are always 0, and they never change. So whenever the Player component changes a score, we want the ScoreBoard component to save this value to its own state. For this we can re-use the onChangeScore callback and the Array.map function to create a new player list:
 
-	```javascript
+	```jsx
     onChangeScore(name, score){
         // create a new list of player by looping over the existing list
         // and replacing the player we want to change the score for
@@ -538,7 +539,7 @@ But what if we want to add players on the fly, while running the application? Le
 
 1. Create a new Component called AddPlayer.js
 
-	```javascript
+	```jsx
 	import React from 'react';
 	
 	class AddPlayer extends React.Component {
@@ -571,12 +572,12 @@ But what if we want to add players on the fly, while running the application? Le
 	
 2. Add this component to our ScoreBoard.js and use the onSubmit callback:
 		
-	```javascript
+	```jsx
 	<AddPlayer onSubmit={this.onAddPlayer.bind(this)} />
 	```
 	and:
 		
-	```javascript
+	```jsx
     onAddPlayer(username){
         var newPlayer = { name: username, score: 0 };
         var newPlayers = this.state.players.concat(newPlayer);
@@ -598,7 +599,7 @@ But what if we want to add players on the fly, while running the application? Le
 
 	Now let's fetch as JSON and set it to our component's state after it has mounted to the DOM:
 
-	```javascript
+	```jsx
     constructor(){
         super();
 
