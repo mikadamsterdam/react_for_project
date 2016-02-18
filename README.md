@@ -648,7 +648,7 @@ return (
 );
 ```
 
-Webpack allows us to include CSS within our components. This way we can write small css files which we link directly to a component. Be sure to use unique classnames for your components (it's best to name the css class after your component). To use this feature within Webpack you have to install a css-loader. Read about [Webpack loaders](http://webpack.github.io/docs/using-loaders.html) and the [CSS loader](https://github.com/webpack/css-loader). The CSS loader will by default create a <style> tag in the browser at runtime, but you can also configure it to build one big CSS file out of all your styles across components.
+Webpack allows us to include CSS within our components. This way we can write small css files which we link directly to a component. Be sure to use unique classnames for your components (it's best to name the css class after your component). To use this feature within Webpack you have to install a css-loader. Read about [Webpack loaders](http://webpack.github.io/docs/using-loaders.html) and the [CSS loader](https://github.com/webpack/css-loader). The CSS loader will by default create a `<style>` tag in the browser at runtime, but you can also configure it to build one big CSS file out of all your styles across components. 
 
 When you've installed and configured the css loader in Webpack you can do: `import './main.css';`
 
