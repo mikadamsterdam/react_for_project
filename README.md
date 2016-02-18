@@ -1,5 +1,3 @@
-> Note: this is a work in progress
-
 React Tutorial
 =======================================
 
@@ -137,10 +135,10 @@ We'll be using ES6, a new version of Javascript, this will be transformed to ES5
 	```
 This line tells React to render the App.js within the `<div id='root'>` that we saw ealier in `index.html`. 
 9. Now let's have a look at `App.js`. What do we see:
-- We import React to use in this file
-- We create a class called 'App' which extends `React.Component`. This means we create our own React Component called 'App'.
-- We define a `render` method on our App. This returns a bit of HTML, which will be rendered by React.
-- We export the App, meaning other files who import this file, will get the App Component (that part of the code in this file).
+	- We import React to use in this file
+	- We create a class called 'App' which extends `React.Component`. This means we create our own React Component called 'App'.
+	- We define a `render` method on our App. This returns a bit of HTML, which will be rendered by React.
+	- We export the App, meaning other files who import this file, will get the App Component (that part of the code in this file).
 10. As you see we write html within Javascript while using React, we usually can't do this. We call this: JSX. Webpack translates this JSX (which the browser can't understand), to plain old Javascript (which the browser does understand).
 11. You can edit the JSX in the render method to whatever html you want. Just be sure to always enclose everything with a single tag, such as a div:
 
