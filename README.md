@@ -2,7 +2,7 @@ React Tutorial
 =======================================
 
 ## What is React
-- React is a Javascript UI library created by some developers at Facebook and Instagram. 
+- [React](https://facebook.github.io/react/) is a Javascript UI library created by some developers at Facebook and Instagram. 
 - It can be considered the V in MVC
 - It was built to solve one problem: building large (front end) applications with data that changes over time.
 
@@ -11,9 +11,9 @@ React Tutorial
 - React introduces a new paradigm to UI development, which makes the inner working of your front-end app a lot more predictable.
 
 ## When to use React
-- If you're dealing with a lot of DOM maniplutation
+- If you're dealing with a lot of DOM manipulation
 - If you're dealing with a lot of 'state management' of the front-end, for instance: chat applications
-- If you wish to separate the front end ('single-page-app') from your backend ('json rest api')
+- If you wish to separate the front end ([single page application](https://en.wikipedia.org/wiki/Single-page_application)) from your backend (most commonly a JSON api)
 
 ## How
 Instead of manipulation the DOM directly, each component renders a piece of html. Each component automatically re-renders, whenever something within that component changes.
@@ -111,8 +111,6 @@ Avatar, UserLink, Post Meta, Post Actions are re-used in the overview:
 ### Get your environment ready
 We will need NodeJS and npm for development. Make sure you have got NodeJS and npm installed: https://nodejs.org/en/download/package-manager/
 
-We'll be using ES6, a new version of Javascript, this will be transformed to ES5 by a tool called Webpack, so that browsers can understand it.
-
 ## 1. Hello World in React
 > We learn: React setup with Webpack, JSX and rendering.
 
@@ -155,7 +153,12 @@ This line tells React to render the App.js within the `<div id='root'>` that we 
 		);
 	}
 	```
-Source: https://github.com/nextminds/traineeship-react/releases/tag/1
+	
+**Source code:** https://github.com/Codaisseur/traineeship-react/releases/tag/1
+
+> **ES6/ES2015**
+> We'll be using [ES6/ES2015](https://babeljs.io/docs/learn-es2015/), a new version of Javascript. The ES6 code will be 'transpiled' to ES5 (the version supported by most browsers) by a tool called [Babel](https://babeljs.io/). The tool [Webpack](https://webpack.github.io/) uses this Babel before it bundle our sources together.
+
 
 ## 2. Create a Counter Component
 > We learn: re-use of components, this.state and event-handlers
@@ -249,25 +252,26 @@ We are now going to create a counter to use in our app. This counter will displa
 	
 	There you have it: the user clicks the button, the `plusOne` method is called, the state is changed, the counter is now 1 higher. After the state changes, React will automatically call the `render`, which will show the same html, with the new counter value.
 
-> **Key Takeaway**
-> Every time the state of a component changes, it rerenders
+	> **Key Takeaway**
+	> Every time the state of a component changes, it rerenders
 
 9. All React component are reusable, so we can go ahead and add 3 or more independent Counters to our app:
-```
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>3 Counters</h1>
-                <Counter />
-                <Counter />
-                <Counter />
-            </div>
-        );
-    }
-}
-```
-Source: https://github.com/nextminds/traineeship-react/releases/tag/2
+	```
+	class App extends React.Component {
+	    render() {
+	        return (
+	            <div>
+	                <h1>3 Counters</h1>
+	                <Counter />
+	                <Counter />
+	                <Counter />
+	            </div>
+	        );
+	    }
+	}
+	```
+	
+**Source code:** https://github.com/Codaisseur/traineeship-react/releases/tag/2
 
 ## 3. Make a Simple Score Board
 > Props, callbacks, inter-component-communication
@@ -346,7 +350,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
     </table>
 	```
 > **Key Takeaway**
-> Every time the state of a component changes, it rerenders
+> Every time the props passed to a component change, it also rerenders
 
 4. Let's show a prize whenever a Player hits 10 points:
 
@@ -409,7 +413,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 		</tr>
 	</tfoot>
 	```
-	*Note that: html attributes in React (JSX) should be written camelCased. So `colspan` becomes `colSpan` . For a full list see: https://facebook.github.io/react/docs/tags-and-attributes.html*
+	*Note that: html attributes in React (JSX) should be written camelCased. So `colspan` becomes `colSpan` . For a full list see [tags and attributes](https://facebook.github.io/react/docs/tags-and-attributes.html)*
 	
 	We should also add a constructor to ScoreBoard to initialize this.state:
 		
@@ -427,7 +431,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 	> **Key Takeaway**
 	> Children can Communicate to their parents through callbacks. The parents are in charge.
 	
-source: https://github.com/nextminds/traineeship-react/releases/tag/3
+**Source code:** https://github.com/codaisseur/traineeship-react/releases/tag/3
 
 ## 4. Create an Interactive Scoreboard App
 > We learn: rendering lists, data manipulation with Array.map, controlled components
@@ -518,13 +522,14 @@ Instead of adding multiple Player components manually in the ScoreBoard, we shou
         });
     }
     ```
+    
+**Source code:** https://github.com/codaisseur/traineeship-react/releases/tag/4
 
-Ideas to make our app better:
-- All the scores together and show the total score
-- Use Array.sort in the render method of Scoreboard to sort players by score
-- Color the highest score green, lowest red
 
-Source: https://github.com/nextminds/traineeship-react/releases/tag/4
+> **Extra exercise:**
+> - Add all the scores and show the total score
+> - Use Array.sort in the render method of Scoreboard to sort players by score high-low
+> - Color the highest score green, lowest red
 
 ## 5. Implementing Add Functionality
 > We learn: forms, refs, data manipulation, external data
@@ -604,39 +609,81 @@ But what if we want to add players on the fly, while running the application? Le
     }
 	```
 
-source: https://github.com/nextminds/traineeship-react/releases/tag/5.3
+**Source code:** https://github.com/nextminds/traineeship-react/releases/tag/5.3
 
-More ideas:
-- A remove button behind each Player to remove them
-- Create an API with Rails and Post and Delete the changes to/form an external API
-- Show a loading indicator (spinner) while the requests are done
+> **Extra exercise:**
+> - A remove button behind each Player to remove them
+> - Show a loading indicator (spinner) while the requests are done
+> - Create an API with Rails and Post and Delete the changes to/form an external API
 
-** TODO TODO TODO ** 
-explain how to build to a single JS file and use this JS file within your project.
-** TODO TODO TODO ** 
+## Building the bundle for production
+Once you're satisfied with your app, you can build a single bundled JS file to use in your web-app. You can generate this bundle by running the command:
+
+```bash
+npm run build
+```
+
+This will generate one JS file out of your source code and place it in the directory `./dist/`. It will also generate a `.map` file, this is a so called [source map](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/), which can help you debug the minified JS code. It only creates a production-ready JS file, it doesn't create a .html file; for now you have to create this file yourself.
 
 -------------
 
 
-## 6. Other features
-Todo: just tell them about this stuff, no coding: zelf uitzoeken.
-### Life cycle callbacks
+## 6. More React.js
+
+### Life Cycle Methods
+When specifying a component (creating a class which extends React.Component), you *always* need to implement a `render()` method. This is not the only method you can implement from the React Component. We have already used `componentDidMount` to execute some code when the component was mounted in the DOM. [Read about these Life Cycle Methods in the React Documentation](https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods). It is common practice to prefix your own custom methods with an underscore to distinguish between these and React's standard methods. For instance: the `onChangeScore` we wrote above would become `_onChangeScore` and `renderPlayer` would become `_renderPlayer`.
 
 ### Styling in React and Webpack
-- className instead of class property
-- import styles with webpack: `require('./style.css')`
+Because 'class' is a [reserved keyword](https://en.wikipedia.org/wiki/Reserved_word) in Javascript, we use the `className` property to add classes to html tags:
 
-### React Transitions
+```jsx
+return (
+	<div className="scoreboard">
+		<ul className="scoreboard-list">
+			<li className="scoreboard-list-item">
+				Yay classes!
+			</li>
+		</ul>
+	</div>
+);
+```
+
+Webpack allows us to include CSS within our components. This way we can write small css files which we link directly to a component. Be sure to use unique classnames for your components (it's best to name the css class after your component). To use this feature within Webpack you have to install a css-loader. Read about [Webpack loaders](http://webpack.github.io/docs/using-loaders.html) and the [CSS loader](https://github.com/webpack/css-loader). The CSS loader will by default create a <style> tag in the browser at runtime, but you can also configure it to build one big CSS file out of all your styles across components.
+When you've installed and configured the css loader in Webpack you can do:
+```jsx
+import './main.css';
+```
+
+> **Extra exercise:**
+> - Add a CSS file and create some nice styling for our app
+> - Setup Webpack with the CSS loader
+
+### React Animations
+[React Transitions](https://facebook.github.io/react/docs/animation.html) - create friendly css transitions, for instance: transition list items in and out. Example: http://bradleyboy.github.io/react-meetup-rsvp-stream/
+
+> **Extra exercise:**
+> - Use transitions on the Scoreboard/Player components, so that new players fade in when added.
 
 ### ReactTestUtils and Jest
-- Write a test for the counter component: add props, check some rendering
-- Write a test for the application component: simulate a click, check the score
-- Write a test to check the form and data manipulation
+It's easy to test React Components, especially compared to other UI component libraries. React comes with [test utilities](https://facebook.github.io/react/docs/test-utils.html) and there's a testing framework developed by Facebook called [Jest](https://facebook.github.io/jest/docs/tutorial.html#content). 
 
-###8. Virtual DOM, performance optimisations
-- Explain virtual DOM
-- Explain how shouldComponentUpdate and shallowCompare can help - performance
-- Explain PureRenderMixin, javascript object references :o
-- Immutable data
+> **Extra exercise:**
+> - Configure Jest for our React application, [use this tutorial](https://facebook.github.io/jest/docs/tutorial-react.html#content).
+> - Write a test for the players component: add props, test the output it renders
+> - Write a test for the application component: simulate a click, check the score
+> - Write a test to check if the add-player form works
 
-React-Router, Flux?
+### Virtual DOM
+Reading from and rendering to the DOM is very computationally expensive: it is really slow. React allows us to 're-render' our whole app every time the state changes. This performance is achieved by using a virtual-dom. Whenever something changes, React doesn't write to the real DOM, but it writes to a 'virtual-dom': a copy of the DOM that it keeps in memory. React then doesn't rerender the whole application, but only modifies the smallest parts that have changed.
+
+### Interesting talks to help you 'get' the key concepts:
+- [Michael Jackson: Rendering with React](https://www.youtube.com/watch?v=7S8v8jfLb1Q)
+- [Pete Hunt - The Secrets of React's Virtual DOM](https://www.youtube.com/watch?v=-DX3vJiqxm4)
+- [React's Architecture](https://www.youtube.com/watch?v=tXeBZ3WujTs)
+
+### React Developer Tools
+Install the React Developer Tools Chrome plugin to help you debug React: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+
+### Still not convinced?
+The rest of the world is! Besides Facebook and Instagram, ReactJS is now also uses by Netflix, AirBnB, Twitter, Uber, Atlassian, Reddit and Yahoo!.
+See http://react.careers/ and https://github.com/facebook/react/wiki/Sites-Using-React.
