@@ -409,6 +409,7 @@ We are now going to turn these counters into a scoreboard app. This app will sho
 		</tr>
 	</tfoot>
 	```
+	*Note that: html attributes in React (JSX) should be written camelCased. So `colspan` becomes `colSpan` . For a full list see: https://facebook.github.io/react/docs/tags-and-attributes.html*
 	
 	We should also add a constructor to ScoreBoard to initialize this.state:
 		
@@ -621,7 +622,9 @@ explain how to build to a single JS file and use this JS file within your projec
 Todo: just tell them about this stuff, no coding: zelf uitzoeken.
 ### Life cycle callbacks
 
-### Styling in Webpack
+### Styling in React and Webpack
+- className instead of class property
+- import styles with webpack: `require('./style.css')`
 
 ### React Transitions
 
