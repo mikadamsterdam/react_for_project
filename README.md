@@ -588,6 +588,16 @@ But what if we want to add players on the fly, while running the application? Le
 
 3. Get the initial data from an external source
 
+	Now let's load some external data from a JSON file. For this we will use jQuery's get method. First we need to install jQuery, from the command line do:
+
+	```bash
+	npm install jquery --save
+	```
+
+	Now we can import jQuery in the top of our Scoreboard.js: `import jQuery from 'jquery';`
+
+	Now let's fetch as JSON and set it to our component's state after it has mounted to the DOM:
+
 	```javascript
     constructor(){
         super();
@@ -598,6 +608,7 @@ But what if we want to add players on the fly, while running the application? Le
         };
     }
 
+	// this method automatically fires after the component in rendered for the first time on the DOM:
     componentDidMount(){
         // the jQuery.get callback will create a new context (this), so we need to remember what 'this'
         var self = this;
