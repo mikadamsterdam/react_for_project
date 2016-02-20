@@ -613,7 +613,7 @@ But what if we want to add players on the fly, while running the application? Le
     componentDidMount(){
         // the jQuery.get callback will create a new context (this), so we need to remember what 'this'
         var self = this;
-        jQuery.get("http://nextminds.github.io/scoreboard.json", function(data){
+        jQuery.get("http://hook.io/nextminds/scores", function(data){
             self.setState({
                 players: data.players
             });
@@ -621,12 +621,27 @@ But what if we want to add players on the fly, while running the application? Le
     }
 	```
 
-**Source code:** https://github.com/codaisseur/traineeship-react/releases/tag/5.3
+4. We can also post the data back to our end point whenever we change it, to persist it. For this we write a new method on our ScoreBoard:
+	```jsx
+   saveData(players){
+        jQuery.ajax({
+            type: "POST",
+            url: "http://hook.io/nextminds/scores",
+            data: JSON.stringify({
+                players: players
+            }),
+            contentType: "application/json",
+            dataType: "json"
+        });
+    }
+	```
+	We have to call this method every time the score is changed and every time we add a player, so at the bottom of `onChangeScore` and `onAddPlayer`: `this.saveData(newPlayers);`
+	
+**Source code:** https://github.com/Codaisseur/traineeship-react/releases/tag/5.4
 
 > **Extra exercise:**
 > - A remove button behind each Player to remove them
-> - Show a loading indicator (spinner) while the requests are done
-> - Create an API with Rails and Post and Delete the changes to/form an external API
+> - Show a loading indicator (spinner) while the requests are loading
 
 ## Building the bundle for production
 Once you're satisfied with your app, you can build a single bundled JS file to use in your web-app. You can generate this bundle by running the command:
