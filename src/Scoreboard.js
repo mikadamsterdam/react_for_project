@@ -9,7 +9,7 @@ class ScoreBoard extends React.Component {
         super();
 
         this.state = {
-            message: "There are no scores yet.",
+            message: "",
             players: []
         };
     }
