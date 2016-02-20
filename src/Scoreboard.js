@@ -17,7 +17,7 @@ class ScoreBoard extends React.Component {
     componentDidMount(){
         // the jQuery.get callback will create a new context (this), so we need to remember what 'this'
         var self = this;
-        jQuery.get("http://nextminds.github.io/scoreboard.json", function(data){
+        jQuery.getJSON("http://hook.io/nextminds/scores", function(data){
             self.setState({
                 players: data.players
             });
@@ -43,6 +43,8 @@ class ScoreBoard extends React.Component {
             message: name + " scored and has " + score + " points.",
             players: newPlayers
         });
+
+        this.saveData(newPlayers);
     }
 
     renderPlayer(player){
@@ -52,12 +54,26 @@ class ScoreBoard extends React.Component {
             onChange={this.onChangeScore.bind(this)} />;
     }
 
+    saveData(players){
+        jQuery.ajax({
+            type: "POST",
+            url: "http://hook.io/nextminds/scores",
+            data: JSON.stringify({
+                players: players
+            }),
+            contentType: "application/json",
+            dataType: "json"
+        });
+    }
+
     onAddPlayer(username){
         var newPlayer = { name: username, score: 0 };
         var newPlayers = this.state.players.concat(newPlayer);
         this.setState({
             players: newPlayers
         });
+
+        this.saveData(newPlayers);
     }
 
     render() {
