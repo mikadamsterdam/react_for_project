@@ -12,9 +12,10 @@ class AddTaskDescription extends React.Component {
     render() {
         return (
             <form onSubmit={this.onSubmit.bind(this)}>
-                <label>task</label>
+                <label>Title: </label>
                 <input ref="task" />
-                <label>description</label>
+                <br />
+                <label>Description: </label>
                 <input ref="description" />
                 <button>Add Task</button>
             </form>

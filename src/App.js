@@ -1,13 +1,16 @@
 import React from 'react';
-import ScoreBoard from './Scoreboard';
+import Taskboard from './Taskboard';
+import AddTaskDescription from './AddTaskDescription';
 
 class App extends React.Component {
     render() {
         return (
             <div>
                 <h1>ProjectName</h1>
-                      <button onClick={this.create}>New task</button>
-                <ScoreBoard />
+                <hr />
+                <AddTaskDescription />
+                <hr />
+                <Taskboard />
             </div>
         );
     }
