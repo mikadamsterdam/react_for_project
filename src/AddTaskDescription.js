@@ -5,19 +5,19 @@ class AddTaskDescription extends React.Component {
     onSubmit(event){
         // if we don't call event.preventDefault, the browser will think we want to submit the form
         event.preventDefault();
-        this.props.onSubmit(this.refs.task.value);
-        this.props.onSubmit(this.refs.description.value);
+        this.props.onSubmit(this.refs.task.value, this.refs.description.value);
+
     }
 
     render() {
         return (
             <form onSubmit={this.onSubmit.bind(this)}>
-                <label>Title: </label>
+                <label>task</label>
                 <input ref="task" />
-                <br />
-                <label>Description: </label>
+                <label>description</label>
                 <input ref="description" />
                 <button>Add Task</button>
+               <input type="checkbox" name="Task" value="work done" />task done
             </form>
 
         );
