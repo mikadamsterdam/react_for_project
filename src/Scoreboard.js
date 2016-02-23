@@ -1,7 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Player from './Player';
-import AddPlayer from './AddPlayer';
+import AddTaskDescription from './AddTaskDescription';
 
 class ScoreBoard extends React.Component {
 
@@ -21,6 +21,7 @@ class ScoreBoard extends React.Component {
                   <td><p>ProjectDescription</p></td>
                 </tr>
               </table>
+              <AddTaskDescription />
               <table>
                 <tr>
                   <td><h3>ProjectTitle</h3></td>
@@ -29,6 +30,7 @@ class ScoreBoard extends React.Component {
                   <td><p>ProjectDescription</p></td>
                 </tr>
               </table>
+              <AddTaskDescription />
               <table>
                 <tr>
                   <td><h3>ProjectTitle</h3></td>
@@ -37,6 +39,7 @@ class ScoreBoard extends React.Component {
                   <td><p>ProjectDescription</p></td>
                 </tr>
               </table>
+              <AddTaskDescription />
               <table>
                 <tr>
                   <td><h3>ProjectTitle</h3></td>
@@ -45,6 +48,7 @@ class ScoreBoard extends React.Component {
                   <td><p>ProjectDescription</p></td>
                 </tr>
               </table>
+              <AddTaskDescription />
             </div>
         );
     }
