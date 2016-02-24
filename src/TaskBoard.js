@@ -8,11 +8,7 @@ class TaskBoard extends React.Component {
     super();
 
     this.state = {
-        tasks: [
-          "title": "",
-          "description": "",
-          "status": boolean
-        ]
+        tasks: []
     };
 }
 
