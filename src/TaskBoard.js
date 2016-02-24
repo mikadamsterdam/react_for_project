@@ -28,9 +28,9 @@ componentDidMount() {
         />;
 }
 
-  onAddTask(new_title, new_description){
+  onAddTask(newTitle, newDescription){
     var currentTasks = this.state.tasks;
-    var newTasks = currentTasks.concat(new_title, new_description);
+    var newTasks = currentTasks.concat(newTitle, newDescription, newStatus);
     this.setState({
       tasks: newTasks
     });
