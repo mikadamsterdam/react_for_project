@@ -26,19 +26,20 @@ class TaskBoard extends React.Component {
     var newTask = { title: new_title, description: new_description };
     var newTasks = this.state.tasks.concat(newTask);
     this.setState({
-        tasks: newTasks
+      tasks: newTasks
     });
-}
+  }
 
   render() {
     return (
       <div>
+        <AddTask onSubmit={this.onAddTask.bind(this)} />
+        <hr />
         <table>
           <tbody>
             {this.state.tasks.map(this.renderTask.bind(this))}
           </tbody>
         </table>
-        <AddTask onSubmit={this.onAddTask.bind(this)} />
       </div>
     );
   }
