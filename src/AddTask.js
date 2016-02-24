@@ -32,14 +32,13 @@ createTask(event){
          dataType: "json"
        })
          .done(function(data) {
-           
-           component.refs.newTaskInput.value = "";
+           component.refs.newTask.value = "";
+           component.refs.newDescription.value = "";
          })
-
          .fail(function(error) {
            console.log(error);
          });
-}
+    }
 
     render() {
         return (
