@@ -40,9 +40,7 @@ componentDidMount() {
     return (
       <div>
         <AddTask onSubmit={this.onAddTask.bind(this)} />
-
       <hr />
-
         <table>
           <tbody>
               {this.state.tasks.map(this.renderTask.bind(this))}
