@@ -1,5 +1,5 @@
 import React from 'react';
-import jQuery from 'jQuery';
+import jQuery from 'jquery';
 import Task from './Task';
 import AddTask from './AddTask';
 
