@@ -1,4 +1,5 @@
 import React from 'react';
+import jQuery from 'jQuery';
 import Task from './Task';
 import AddTask from './AddTask';
 
@@ -7,13 +8,18 @@ class TaskBoard extends React.Component {
     super();
 
     this.state = {
-        tasks: [
-            { title: "Chiel", description: "Do something" },
-            { title: "Maurice", description: "Go to work!" },
-            { title: "Ashot", description: "What are you doing?!" }
-        ]
+        tasks: []
     };
 }
+
+componentDidMount() {
+   let component = this;
+   jQuery.getJSON("https://taskpool.herokuapp.com/", function(data){
+       component.setState({
+           tasks: data.tasks
+       })
+   });
+ }
 
   renderTask(task){
     return <Task
@@ -23,8 +29,8 @@ class TaskBoard extends React.Component {
 }
 
   onAddTask(new_title, new_description){
-    var newTask = { title: new_title, description: new_description };
-    var newTasks = this.state.tasks.concat(newTask);
+    var currentTasks = this.state.tasks;
+    var newTasks = currentTasks.concat(new_title, new_description);
     this.setState({
       tasks: newTasks
     });
@@ -34,10 +40,12 @@ class TaskBoard extends React.Component {
     return (
       <div>
         <AddTask onSubmit={this.onAddTask.bind(this)} />
-        <hr />
+
+      <hr />
+
         <table>
           <tbody>
-            {this.state.tasks.map(this.renderTask.bind(this))}
+              {this.state.tasks.map(this.renderTask.bind(this))}
           </tbody>
         </table>
       </div>
