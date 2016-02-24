@@ -9,10 +9,14 @@ class Task extends React.Component {
       return (
         <div>
         <tr>
-          <td>{this.props.title}</td>
+          <td><input type="checkbox" name="Task" value="work done" /></td>
+          <td><strong>{this.props.title}</strong></td>
+          <br />
         </tr>
         <tr>
           <td>{this.props.description}</td>
+          <br />
+          <br />
         </tr>
         </div>
       );
