@@ -1,5 +1,5 @@
 import React from 'react';
-import jQuery from 'jQuery';
+import jQuery from 'jquery';
 import Task from './Task';
 import AddTask from './AddTask';
 
@@ -8,7 +8,11 @@ class TaskBoard extends React.Component {
     super();
 
     this.state = {
-        tasks: []
+        tasks: [
+          "title": "",
+          "description": "",
+          "status": boolean
+        ]
     };
 }
 
@@ -28,12 +32,27 @@ componentDidMount() {
         />;
 }
 
-  onAddTask(new_title, new_description){
+  saveData(tasks){
+      jQuery.ajax({
+          type: "POST",
+          url: "https://taskpool.herokuapp.com/",
+          data: JSON.stringify({
+              tasks: tasks
+            }),
+            contentType: "application/json",
+            dataType: "json"
+          });
+    }
+
+  onAddTask(newTitle, newDescription){
     var currentTasks = this.state.tasks;
-    var newTasks = currentTasks.concat(new_title, new_description);
+    var newTasks = currentTasks.concat(newTitle, newDescription, newStatus);
     this.setState({
       tasks: newTasks
     });
+
+    this.saveData(newTasks);
+
   }
 
   render() {
