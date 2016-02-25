@@ -5,19 +5,23 @@ class Task extends React.Component {
         super();
     }
 
+    getComponent(event) {
+      console.log('Task selected!');
+      event.currentTarget.style.backgroundColor = '#00cc00';
+  }
+
     render(){
       return (
         <div>
-        <tr>
-          <td><input type="checkbox" name="Task" value="work done" /></td>
-          <td><strong>{this.props.title}</strong></td>
+          <tr>
+            <td><strong onClick={this.getComponent.bind(this)}>{this.props.title}</strong></td>
           <br />
-        </tr>
-        <tr>
-          <td>{this.props.description}</td>
+          </tr>
+          <tr>
+            <td>{this.props.description}</td>
           <br />
           <br />
-        </tr>
+          </tr>
         </div>
       );
     }

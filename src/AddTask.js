@@ -43,11 +43,8 @@ createTask(event){
     render() {
         return (
             <form onSubmit={this.createTask.bind(this)}>
-                <label>Title: </label>
-                <input ref="newTask" />
-                <br />
-                <label>Description: </label>
-                <input ref="newDescription" />
+                <input ref="newTask" placeholder="Title of the task" />
+                <input ref="newDescription" placeholder="Description of the task" />
                 <button>Add Task</button>
             </form>
         );
