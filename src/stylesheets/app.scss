@@ -7,6 +7,9 @@ border-radius: 21px;
 /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
 -moz-box-shadow: 0px 0px 15px #000000;
 -webkit-box-shadow: 0px 0px 15px #000000;
-box-shadow: 0px 0px 15px #000000;
 /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
  }
+
+ h1 {background-color: #6666ff;
+ color: white;
+padding: 20px;}

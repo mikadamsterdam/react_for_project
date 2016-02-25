@@ -24,7 +24,7 @@ createTask(event){
 
     jQuery.ajax({
         type: "POST",
-         url: "https://taskpool.herokuapp.com/task.json",
+         url: "https://taskpool.herokuapp.com",
          data: JSON.stringify({
              task: newTask
          }),
