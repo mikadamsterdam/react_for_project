@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class Project extends React.Component {
     constructor(){
@@ -7,10 +8,17 @@ class Project extends React.Component {
 
     render(){
       return (
+      <div>
+        <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ></input>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
         <div>
         <tr>
-          <td><input type="checkbox" name="Project" value="work done" />   </td>
-          <td><strong>{this.props.name}</strong></td>
+          <td><strong><Link to="/projects/:projectId">{this.props.name}</Link></strong></td>
           <br />
         </tr>
         <tr>
@@ -19,6 +27,7 @@ class Project extends React.Component {
           <br />
         </tr>
         </div>
+      </div>
       );
     }
 }

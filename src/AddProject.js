@@ -43,7 +43,6 @@ class AddProject extends React.Component {
         return (
 
           <div id="add">
-
             <form onSubmit={this.createProject.bind(this)}>
             <input ref="newName" placeholder="Title of the project" />
             <input ref="newGoal" placeholder="Goal of the project" />

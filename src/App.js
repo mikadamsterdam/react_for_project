@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectBoard from './ProjectBoard';
+import { Link } from 'react-router';
 
 class App extends React.Component {
 
@@ -8,7 +8,7 @@ class App extends React.Component {
             <div id="board">
                 <h1>Projects</h1>
                 <hr />
-                <ProjectBoard />
+                {this.props.children}
             </div>
         );
     }
