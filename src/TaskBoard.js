@@ -12,34 +12,32 @@ class TaskBoard extends React.Component {
     };
 }
 
-componentDidMount() {
-   let component = this;
-   jQuery.getJSON("https://taskpool.herokuapp.com/", function(data){
-       component.setState({
-           tasks: data.tasks
-       })
-   });
+  reloadTaskBoard(){
+    let component = this;
+    jQuery.getJSON("https://taskpool.herokuapp.com/projects/", function(data){
+      component.setState({
+          tasks: data.tasks
+      })
+    });
+  }
+
+  componentDidMount() {
+    this.reloadTaskBoard();
  }
 
   renderTask(task){
     return <Task
+        id={task.id}
         title={task.title}
         description={task.description}
+        status={task.status}
         />;
 }
-
-  onAddTask(newTitle, newDescription){
-    var currentTasks = this.state.tasks;
-    var newTasks = currentTasks.concat(newTitle, newDescription, newStatus);
-    this.setState({
-      tasks: newTasks
-    });
-  }
 
   render() {
     return (
       <div>
-        <AddTask onSubmit={this.onAddTask.bind(this)} />
+        <AddTask onChange={this.reloadTaskBoard.bind(this)} />
       <hr />
         <table>
           <tbody>

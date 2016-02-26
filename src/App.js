@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskBoard from './TaskBoard';
+import ProjectBoard from './ProjectBoard';
 
 class App extends React.Component {
 
@@ -8,7 +8,7 @@ class App extends React.Component {
             <div>
                 <h1>ProjectName</h1>
                 <hr />
-                <TaskBoard />
+                <ProjectBoard />
             </div>
         );
     }
