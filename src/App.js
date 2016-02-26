@@ -1,14 +1,14 @@
 import React from 'react';
-import TaskBoard from './TaskBoard';
+import ProjectBoard from './ProjectBoard';
 
 class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>ProjectName</h1>
+            <div id="board">
+                <h1>Projects</h1>
                 <hr />
-                <TaskBoard />
+                <ProjectBoard />
             </div>
         );
     }

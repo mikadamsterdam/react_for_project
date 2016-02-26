@@ -34,6 +34,7 @@ createTask(event){
          .done(function(data) {
            component.refs.newTask.value = "";
            component.refs.newDescription.value = "";
+           component.props.onChange();
          })
          .fail(function(error) {
            console.log(error);

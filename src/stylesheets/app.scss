@@ -10,6 +10,13 @@ border-radius: 21px;
 
 /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
  }
-h1 {background-color: #3333ff;
+h1 {background-color: #333333;
 color: white;
-padding: 20px;}
+padding: 20px;
+margin-left: -20px;
+margin-right: -20px;}
+
+#board {background-color: #f2f2f2;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 20px;}
