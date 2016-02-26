@@ -41,13 +41,19 @@ class AddProject extends React.Component {
 
     render() {
         return (
+<<<<<<< HEAD
           <div id="add">
+=======
+>>>>>>> 37090ed8df42cfa40c0ca5f5bf6781981ea32860
             <form onSubmit={this.createProject.bind(this)}>
             <input ref="newName" placeholder="Title of the project" />
             <input ref="newGoal" placeholder="Goal of the project" />
             <button>Add project</button>
             </form>
+<<<<<<< HEAD
             </div>
+=======
+>>>>>>> 37090ed8df42cfa40c0ca5f5bf6781981ea32860
         );
     }
 }
