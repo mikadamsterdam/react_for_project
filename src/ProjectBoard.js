@@ -8,7 +8,8 @@ class ProjectBoard extends React.Component {
     super();
 
     this.state = {
-        projects: []
+        projects: [
+        ]
     };
 }
 
@@ -27,6 +28,7 @@ class ProjectBoard extends React.Component {
 
   renderProject(project){
     return <Project
+        id={project.id}
         name={project.name}
         goal={project.goal}
         />;

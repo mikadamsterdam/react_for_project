@@ -6,6 +6,15 @@ class Project extends React.Component {
         super();
     }
 
+    componentDidMount() {
+      console.log(data);
+  this.setState({
+    id: this.props.id,
+    name: this.props.name,
+    goal: this.props.goal,
+  });
+}
+
     render(){
       return (
       <div>
@@ -18,7 +27,7 @@ class Project extends React.Component {
         </div>
         <div>
         <tr>
-          <td><strong><Link to="/projects/:projectId">{this.props.name}</Link></strong></td>
+          <td><strong><Link to={`/projects/${this.props.id}`}>{this.props.name}</Link></strong></td>
           <br />
         </tr>
         <tr>
